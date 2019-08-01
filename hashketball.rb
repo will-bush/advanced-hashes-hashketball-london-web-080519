@@ -133,7 +133,7 @@ end
 
 
 
-def shoe_size(player_name)
+def shoe_size(players_name)
   game_hash.each do |location, team|
     team.each do |attribute, data|
       if attribute == :players
@@ -147,17 +147,51 @@ def shoe_size(player_name)
   end
 end
 
-def team_colors
+def team_colors(team_name)
+  game_hash.each do |location, team|
+      if team[:team_name] == team_name
+        return team[:colors]
+      end
+    end
+  end
+
+def team_names
+  game_hash.map do |location, team|
+    team[:team_name]
+end
 end
 
-def team_name
+
+def player_numbers(team_name)
+  nums = []
+  game_hash.each do |location, team|
+    if team[:team_name] == team_name
+      team.each do |attribute, data|
+        if attribute == :players
+          data.each do |player|
+            nums << player[:number]
+          end
+        end
+      end
+    end
+  end
+  nums
 end
 
-def player_numbers
+def player_stats(player_name)
+  new_hash = {}
+game_hash.each do |location, team|
+    team.each do |attribute, data|
+      if attribute == :players
+        data.each do |player|
+        if player[:player_name] == player_name
+          new_hash = player.delete_if do |k, v|
+            k == :player_name
+          end
+        end
+      end
+    end
+  end
 end
-
-def player_stats
-end
-
-def big_shoe_rebounds
+new_hash
 end
