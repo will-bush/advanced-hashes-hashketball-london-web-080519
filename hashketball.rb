@@ -195,3 +195,20 @@ game_hash.each do |location, team|
 end
 new_hash
 end
+
+def big_shoe_rebounds
+biggest_shoe_size = 0
+num_rebounds = 0
+  game_hash.each do |location, team|
+    team.each do |attribute, data|
+      if attribute == :players
+        data.each do |player|
+        if player[:shoe] > biggest_shoe_size
+          num_rebounds = player[:rebounds]
+        end
+        end
+      end
+    end
+  end
+  num_rebounds
+end
