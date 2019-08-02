@@ -212,5 +212,5 @@ player_name = ""
       end
     end
   end
-  return num_rebounds
+  return player_name
 end
