@@ -225,10 +225,10 @@ player_name = ""
         if player[:points] > points_scored
           points_scored = player[:points]
           player_name = player[:name]
+          return player_name
         end
         end
       end
     end
   end
-  player_name
 end
