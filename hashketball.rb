@@ -222,12 +222,12 @@ player_name = ""
       if attribute == :players
         data.each do |player|
         if player[:points] > points_scored
-          biggest_shoe_size = player[:shoe]
-          num_rebounds = player[:rebounds]
+          points_scored = player[:points]
+          player_name = player[:name]
         end
         end
       end
     end
   end
-  return num_rebounds
+  return player_name
 end
