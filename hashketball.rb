@@ -221,6 +221,7 @@ player_name = ""
     team.each do |attribute, data|
       if attribute == :players
         data.each do |player|
+          binding.pry
         if player[:points] > points_scored
           points_scored = player[:points]
           player_name = player[:name]
