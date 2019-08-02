@@ -199,7 +199,6 @@ end
 def big_shoe_rebounds
 biggest_shoe_size = 0
 num_rebounds = 0
-player_name = ""
   game_hash.each do |location, team|
     team.each do |attribute, data|
       if attribute == :players
@@ -207,7 +206,6 @@ player_name = ""
         if player[:shoe] > biggest_shoe_size
           biggest_shoe_size = player[:shoe]
           num_rebounds = player[:rebounds]
-          player_name = player[:player_name]
         end
         end
       end
